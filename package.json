@@ -4,7 +4,7 @@
  "main": "index.js",
  "license": "MIT",
  "scripts": {
-  "watch-node": "node --watch node"
+  "watch-node": "node --watch"
  },
  "author": "Leonardo Rincón <hi@leorincon.com>",
  "dependencies": {
