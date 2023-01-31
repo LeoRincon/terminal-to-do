@@ -36,5 +36,11 @@ const menuOptions = [
   ],
  },
 ];
-
-module.exports = menuOptions;
+const stopOptions = [
+ {
+  type: 'input',
+  name: 'enter',
+  message: `Press ${'ENTER'.green} to continue`,
+ },
+];
+module.exports = { menuOptions, stopOptions };

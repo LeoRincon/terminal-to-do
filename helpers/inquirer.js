@@ -1,8 +1,6 @@
 require('colors');
 
-const menuOptions = require('../utils/menuOptions');
-
-const stopOptions = require('../utils/stopOptions');
+const { menuOptions, stopOptions } = require('../utils/dataOptions');
 
 const inquirer = require('inquirer');
 
