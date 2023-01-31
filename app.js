@@ -1,8 +1,7 @@
-const { inquirerMenu, StopMenu } = require('./helpers/inquirer');
-
 require('colors');
 
-console.clear();
+const { inquirerMenu, StopMenu } = require('./helpers/inquirer');
+const Tasks = require('./models/tasks');
 
 const main = async () => {
  let selectedOptionUser = '';
@@ -10,6 +9,7 @@ const main = async () => {
  do {
   selectedOptionUser = await inquirerMenu();
   console.log({ selectedOptionUser });
+
   await StopMenu();
  } while (selectedOptionUser !== '0');
 };
