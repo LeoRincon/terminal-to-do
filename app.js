@@ -20,7 +20,7 @@ const main = async () => {
     tasks.createTask(taskDescription);
     break;
    case '2':
-    console.log(tasks._list);
+    console.log(tasks.listTaskAsArray);
     break;
    default:
     break;
