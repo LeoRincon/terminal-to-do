@@ -18,10 +18,26 @@ class Tasks {
   this._list = {};
  }
 
+ loadTasksFromArray(tasks = []) {
+  tasks.forEach((task) => {
+   this._list[task.id] = task;
+  });
+ }
+
  createTask(description = '') {
   const task = new Task(description);
 
   this._list[task.id] = task;
+ }
+
+ completeList() {
+  console.log();
+  this.listTaskAsArray.forEach((task, index) => {
+   const idx = `${index + 1}.`.green;
+   const { description, completedAt } = task;
+   const status = completedAt ? 'Completed'.green : 'Pending'.red;
+   console.log(`${idx} ${description} => ${status}`);
+  });
  }
 }
 
