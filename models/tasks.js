@@ -58,7 +58,7 @@ class Tasks {
     if (completedAt) {
      counterIndex += 1;
      console.log(
-      `${`${counterIndex}.`.green} ${description} => ${completedAt}`
+      `${`${counterIndex}.`.green} ${description} => ${completedAt.green}`
      );
     }
    } else {
@@ -66,6 +66,21 @@ class Tasks {
      counterIndex += 1;
      console.log(`${`${counterIndex}.`.green} ${description} => ${status}`);
     }
+   }
+  });
+ }
+
+ toggleCompleted(ids = []) {
+  ids.forEach((id) => {
+   const task = this._list[id];
+   if (!task.completedAt) {
+    task.completedAt = new Date().toISOString();
+   }
+  });
+
+  this.listTaskAsArray.forEach((task) => {
+   if (!ids.includes(task.id)) {
+    this._list[task.id].completedAt = null;
    }
   });
  }

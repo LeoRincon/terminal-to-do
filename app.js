@@ -6,6 +6,7 @@ const {
  readInput,
  askDeleteTask,
  confirmTaskDelete,
+ ChooseTaskToComplete,
 } = require('./helpers/inquirer');
 
 const { saveDB, readDB } = require('./helpers/saveFile');
@@ -40,6 +41,10 @@ const main = async () => {
     break;
    case '4':
     tasks.taskCompletedAndPending(false);
+    break;
+   case '5':
+    const ids = await ChooseTaskToComplete(tasks.listTaskAsArray);
+    tasks.toggleCompleted(ids);
     break;
    case '6':
     const taskId = await askDeleteTask(tasks.listTaskAsArray);

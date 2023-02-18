@@ -1,8 +1,7 @@
 require('colors');
+const inquirer = require('inquirer');
 
 const { menuOptions, stopOptions } = require('../utils/dataOptions');
-
-const inquirer = require('inquirer');
 
 const inquirerMenu = async () => {
  console.clear();
@@ -80,10 +79,34 @@ const confirmTaskDelete = async (message) => {
  return ok;
 };
 
+const ChooseTaskToComplete = async (tasks = []) => {
+ const choices = tasks.map((task, index) => {
+  const idx = `${index + 1}.`.green;
+  return {
+   value: task.id,
+   name: `${idx} ${task.description}`,
+   checked: task.completedAt ? true : false,
+  };
+ });
+
+ const questions = [
+  {
+   type: 'checkbox',
+   name: 'ids',
+   message: 'Choose Task To Complete',
+   choices,
+  },
+ ];
+
+ const { ids } = await inquirer.prompt(questions);
+ return ids;
+};
+
 module.exports = {
  confirmTaskDelete,
  inquirerMenu,
  StopMenu,
  readInput,
  askDeleteTask,
+ ChooseTaskToComplete,
 };
