@@ -8,6 +8,9 @@ In your terminal run `yarn` or `npm i` This will set up the dependencies.
 
 Then run `yarn start` or `npm start` to start the app.
 
+<img width="396" alt="image" src="https://user-images.githubusercontent.com/75432596/219880053-7cb7ac54-5984-4795-bafe-82a82d0ebc56.png">
+
+
 language:
 
 NodeJs: v18.13.0
