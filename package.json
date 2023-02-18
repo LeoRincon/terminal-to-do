@@ -1,10 +1,10 @@
 {
  "name": "terminal-to-do",
  "version": "0.0.1",
- "main": "index.js",
+ "main": "app.js",
  "license": "MIT",
  "scripts": {
-  "watch-node": "node --watch"
+  "start": "node app.js"
  },
  "author": "Leonardo Rincón <hi@leorincon.com>",
  "dependencies": {
