@@ -39,6 +39,25 @@ class Tasks {
    console.log(`${idx} ${description} => ${status}`);
   });
  }
+
+ taskCompletedAndPending(completed = true) {
+  let resultTask = {};
+  this.listTaskAsArray.forEach((task) => {
+   if (completed) {
+    // Todo list completed tasks
+    if (task.completedAt) {
+     resultTask = task;
+    }
+   } else {
+    if (!task.completedAt) {
+     resultTask = task;
+    }
+   }
+  });
+
+  console.log(resultTask);
+  return resultTask;
+ }
 }
 
 module.exports = Tasks;

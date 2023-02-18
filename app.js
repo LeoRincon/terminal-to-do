@@ -29,6 +29,8 @@ const main = async () => {
    case '2':
     tasks.completeList();
     break;
+   case '3':
+    tasks.taskCompletedAndPending(true);
    default:
     break;
   }
