@@ -18,16 +18,22 @@ class Tasks {
   this._list = {};
  }
 
- loadTasksFromArray(tasks = []) {
-  tasks.forEach((task) => {
-   this._list[task.id] = task;
-  });
- }
-
  createTask(description = '') {
   const task = new Task(description);
 
   this._list[task.id] = task;
+ }
+
+ deleteTask(id = '') {
+  if (this._list[id]) {
+   delete this._list[id];
+  }
+ }
+
+ loadTasksFromArray(tasks = []) {
+  tasks.forEach((task) => {
+   this._list[task.id] = task;
+  });
  }
 
  completeList() {
@@ -36,27 +42,32 @@ class Tasks {
    const idx = `${index + 1}.`.green;
    const { description, completedAt } = task;
    const status = completedAt ? 'Completed'.green : 'Pending'.red;
-   console.log(`${idx} ${description} => ${status}`);
+   console.log(`${`${idx}`.green} ${description} => ${status}`);
   });
  }
 
  taskCompletedAndPending(completed = true) {
-  let resultTask = {};
+  console.log();
+  let counterIndex = 0;
   this.listTaskAsArray.forEach((task) => {
+   const { description, completedAt } = task;
+
+   const status = completedAt ? 'Completed'.green : 'Pending'.red;
+
    if (completed) {
-    // Todo list completed tasks
-    if (task.completedAt) {
-     resultTask = task;
+    if (completedAt) {
+     counterIndex += 1;
+     console.log(
+      `${`${counterIndex}.`.green} ${description} => ${completedAt}`
+     );
     }
    } else {
-    if (!task.completedAt) {
-     resultTask = task;
+    if (!completedAt) {
+     counterIndex += 1;
+     console.log(`${`${counterIndex}.`.green} ${description} => ${status}`);
     }
    }
   });
-
-  console.log(resultTask);
-  return resultTask;
  }
 }
 
